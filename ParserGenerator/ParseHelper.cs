@@ -155,7 +155,12 @@ namespace QUT.GPGen.Parser
                 FileStream fStrm = null;
                 try {
                     fStrm = new FileStream( grammar.DatFileName, FileMode.Open );
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+                    // MIGRATION: We should migrate this to avoid BinaryFormatter, as I don't own the code nor I have a big context on how this can affect the general behaviour,
+                    // i'm supressing the error manually, specially because if we serialize something here, probably means we're deserializing somewhere else
+                    // that could mean, that we have data already serialized which we need to understand better
                     BinaryFormatter formatter = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
                     grammar.terminals = (Dictionary<string, Terminal>)formatter.Deserialize( fStrm );
                     Terminal.RemoveMaxDummyTerminalFromDictionary( grammar.terminals );
                 }

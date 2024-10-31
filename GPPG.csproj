@@ -1,28 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AF1F8BCF-34FC-4A5E-9D45-BCC6031720BC}</ProjectGuid>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>gppg</AssemblyName>
     <RootNamespace>QUT.Gppg</RootNamespace>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>Gppg</AssemblyTitle>
+    <Description>Gardens Point Parser Generator version 1.5.1 (2013-04-01)</Description>
+    <Company>QUT</Company>
+    <Product>Gppg</Product>
+    <Copyright>Copyright © Wayne Kelly, John Gough 2005-2012</Copyright>
+    <AssemblyVersion>1.5.1</AssemblyVersion>
+    <FileVersion>1.5.1</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <CustomCommands>
@@ -30,97 +21,10 @@
         <Command type="BeforeBuild" command="SpecFiles/GenerateAll.sh" workingdir="SpecFiles/" externalConsole="true" pauseExternalConsole="true" />
       </CustomCommands>
     </CustomCommands>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="GPPGcopyright.rtf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ParserGenerator\CharUtils.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\CodeGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\ErrorHandler.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\GplexBuffers.cs" />
-    <Compile Include="ParserGenerator\Grammar.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\LALRGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\ListUtilities.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\LR0Generator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Main.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\ParseHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Parser.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\ParserAction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Precedence.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Production.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\ProductionItem.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\scanhelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Scanner.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\SemanticAction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Set.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\State.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Symbol.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ParserGenerator\Transition.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShiftReduceParser\ShiftReduceParserCode.cs" />
-    <Compile Include="ParserGenerator\ScanAction.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
